@@ -11,10 +11,11 @@
       background-color: #f9f9f9;
     }
     img {
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-    }
+  border-radius: 50%;
+  width: 150px;
+  height: auto; /* garde la hauteur proportionnelle */
+  max-height: 150px; /* optionnel, pour ne pas dépasser 150px de haut */
+}
     nav a {
       margin: 0 10px;
       text-decoration: none;
@@ -28,8 +29,8 @@
   <h1>Antonin Corinaldi</h1>
 
   <nav>
-    <a href="About.html">Page 1</a>
-    <a href="CV.html">Page 2</a>
+    <a href="About.html">About me</a>
+    <a href="CV.html">CV</a>
   </nav>
 </body>
 </html>
