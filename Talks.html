@@ -1,82 +1,123 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Talks</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
-      background-color: #f9f9f9;
-    }
-     img {
-      border-radius: 50%;
-      max-width: 200px;  
-      max-height: 200px;
-      object-fit: cover;
-      width: auto;
-      height: auto;
-    }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: bold;
-    }
-    body {
-      background-image: url('Images/perseus.jpg');
-      background-size: cover; /* L’image prend toute la surface */
-      background-repeat: no-repeat; /* Pas de répétition */
-      background-position: center; /* Centrer l’image */
-      background-attachment: fixed; /* Image fixe lors du scroll (optionnel) */
-    }
-
-    p {
-    max-width: 600px;      /* largeur max du texte */
-    margin: auto;          /* centre horizontalement */
-    text-align: justify;   /* optionnel : aligne proprement le texte */
-    line-height: 1.6;      /* rend la lecture plus agréable */
-    color: white;
-  }
-    
-    h2, a {
-      color: white;          /* 🔹 Titres et liens en blanc */
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Talks · Antonin Corinaldi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-  
 <body>
-  <img src="Images/talk.jpg" alt="talk"/>
-  <br><br><br>
-  
-  <h2>Talks</h2>
-  
-  <br><br>
-  
-  <p> 
-    Action Dark Energy, Paris, November 2026, <a href="Talks/Talk_ADE.pdf" target="_blank" style="color: white;">talk</a>
-    <br><br><br>
-    UNBIAS echoIA workshop, Utrecht (Netherlands), September 2026, <a href="Talks/echoIA_talk.pdf" target="_blank" style="color: white;">talk</a>
-    <br><br><br>
-    Euclid Rodolphe Clédassou summer school, Pornichet (France), August 2026, <a href="Talks/Poster_Sesto.pdf" target="_blank" style="color: white;">poster</a>
-    <br><br><br>
-    Conference on gravitational lensing, Sesto (Italy), July 2026, <a href="Talks/Sesto_flash_talk.pdf" target="_blank" style="color: white;">flask talk (and poster)</a>
-    <br><br><br>
-    Intrinsic Alignment workshop, Paris, June 2026, <a href="Talks/Workshop_IAP.pdf" target="_blank" style="color: white;">talk</a>
-    <br><br><br>
-    Elbereth conference, Paris, April 2026, <a href="Talks/Elbereth.pdf" target="_blank" style="color: white;">talk</a>
-    <br><br><br>
-    Deep CosmoStat Days, Saclay, February 2026, <a href="Talks/Inferring_3D_shapes_and_measuring_intrinsic_alignments_with_UNIONS.pdf" target="_blank" style="color: white;">talk</a>
-    <br><br><br>
-    Euclid-France, 14<sup>th</sup> conference, Strasbourg, November 2025, <a href="Talks/Euclid_France_Strasbourg.pdf" target="_blank" style="color: white;">talk</a>
-    <br><br><br>
-    WL-SHE Euclid meeting, Marseille, October 2025, <a href="Talks/WL_SHE_Marseille.pdf" target="_blank" style="color: white;">talk</a>
-    <br><br><br>
-    Euclid Rodolphe Clédassou summer school, Montricher-Albanne (France), August 2025, <a href="Talks/Poster.pdf" target="_blank" style="color: white;">poster</a>
-    <br><br><br>
-  </p>
-  
-  <a href="index.html">Go back to the homepage</a>
+  <header class="site-header">
+    <a class="brand" href="index.html">Antonin Corinaldi</a>
+    <nav class="site-nav" aria-label="Main">
+    <a href="About.html">About</a>
+    <a href="Research.html">Research</a>
+    <a href="Talks.html" aria-current="page">Talks</a>
+    <a href="Teaching.html">Teaching</a>
+    <a href="Outreach.html">Outreach</a>
+    <a href="CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1 class="page-title">Talks</h1>
+
+    <section class="card">
+      <figure class="figure">
+        <img src="assets/images/talk.jpg" alt="Antonin Corinaldi giving a talk at the Euclid meeting in Marseille" />
+        <figcaption>Euclid WL-SHE meeting, Marseille, October 2025</figcaption>
+      </figure>
+
+      <ol class="timeline">
+        <li>
+          <time>Nov 2026</time>
+          <div>
+            <h3>Action Dark Energy</h3>
+            <p class="meta">Paris</p>
+          </div>
+          <a class="pill" href="assets/talks/2026-11_action_dark_energy_talk.pdf" target="_blank" rel="noopener">Talk</a>
+        </li>
+        <li>
+          <time>Sep 2026</time>
+          <div>
+            <h3>UNBIAS echoIA workshop</h3>
+            <p class="meta">Utrecht, Netherlands</p>
+          </div>
+          <a class="pill" href="assets/talks/2026-09_echoIA_utrecht_talk.pdf" target="_blank" rel="noopener">Talk</a>
+        </li>
+        <li>
+          <time>Aug 2026</time>
+          <div>
+            <h3>Euclid Rodolphe Clédassou summer school</h3>
+            <p class="meta">Pornichet, France</p>
+          </div>
+          <a class="pill" href="assets/talks/2026-07_sesto_poster.pdf" target="_blank" rel="noopener">Poster</a>
+        </li>
+        <li>
+          <time>Jul 2026</time>
+          <div>
+            <h3>Conference on gravitational lensing</h3>
+            <p class="meta">Sesto, Italy</p>
+          </div>
+          <a class="pill" href="assets/talks/2026-07_sesto_flash_talk.pdf" target="_blank" rel="noopener">Flash talk &amp; poster</a>
+        </li>
+        <li>
+          <time>Jun 2026</time>
+          <div>
+            <h3>Intrinsic Alignment workshop</h3>
+            <p class="meta">Paris</p>
+          </div>
+          <a class="pill" href="assets/talks/2026-06_IA_workshop_paris_talk.pdf" target="_blank" rel="noopener">Talk</a>
+        </li>
+        <li>
+          <time>Apr 2026</time>
+          <div>
+            <h3>Elbereth conference</h3>
+            <p class="meta">Paris</p>
+          </div>
+          <a class="pill" href="assets/talks/2026-04_elbereth_talk.pdf" target="_blank" rel="noopener">Talk</a>
+        </li>
+        <li>
+          <time>Feb 2026</time>
+          <div>
+            <h3>Deep CosmoStat Days</h3>
+            <p class="meta">Saclay</p>
+          </div>
+          <a class="pill" href="assets/talks/2026-02_deep_cosmostat_days_talk.pdf" target="_blank" rel="noopener">Talk</a>
+        </li>
+        <li>
+          <time>Nov 2025</time>
+          <div>
+            <h3>Euclid-France, 14<sup>th</sup> conference</h3>
+            <p class="meta">Strasbourg</p>
+          </div>
+          <a class="pill" href="assets/talks/2025-11_euclid_france_strasbourg_talk.pdf" target="_blank" rel="noopener">Talk</a>
+        </li>
+        <li>
+          <time>Oct 2025</time>
+          <div>
+            <h3>WL-SHE Euclid meeting</h3>
+            <p class="meta">Marseille</p>
+          </div>
+          <a class="pill" href="assets/talks/2025-10_WL_SHE_marseille_talk.pdf" target="_blank" rel="noopener">Talk</a>
+        </li>
+        <li>
+          <time>Aug 2025</time>
+          <div>
+            <h3>Euclid Rodolphe Clédassou summer school</h3>
+            <p class="meta">Montricher-Albanne, France</p>
+          </div>
+          <a class="pill" href="assets/talks/2025-08_euclid_summer_school_montricher_poster.pdf" target="_blank" rel="noopener">Poster</a>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Background image: ESA/Euclid/Euclid consortium/NASA, image processing by J.-C. Cuillandre (CEA Paris-Saclay), G. Anselmi
+  </footer>
 </body>
 </html>

@@ -1,63 +1,45 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Outreach</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
-      background-color: #f9f9f9;
-    }
-     img {
-  max-width: 600px;  
-  max-height: 600px;
-  object-fit: cover;
-  width: auto;
-  height: auto;
-}
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: bold;
-    }
- body {
-      background-image: url('Images/perseus.jpg');
-      background-size: cover; /* L’image prend toute la surface */
-      background-repeat: no-repeat; /* Pas de répétition */
-      background-position: center; /* Centrer l’image */
-      background-attachment: fixed; /* Image fixe lors du scroll (optionnel) */
-    }
-    p {
-    max-width: 600px;      /* largeur max du texte */
-    margin: auto;          /* centre horizontalement */
-    text-align: justify;   /* optionnel : aligne proprement le texte */
-    line-height: 1.6;      /* rend la lecture plus agréable */
-    color: white;
-  }
-    h2, a {
-      color: white;          /* 🔹 Titres et liens en blanc */
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Outreach · Antonin Corinaldi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-  
 <body>
-  <h2>Outreach</h2>
-  <br><br>
+  <header class="site-header">
+    <a class="brand" href="index.html">Antonin Corinaldi</a>
+    <nav class="site-nav" aria-label="Main">
+    <a href="About.html">About</a>
+    <a href="Research.html">Research</a>
+    <a href="Talks.html">Talks</a>
+    <a href="Teaching.html">Teaching</a>
+    <a href="Outreach.html" aria-current="page">Outreach</a>
+    <a href="CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </header>
 
-  <figure>
-  <img src="Images/PSE.jpeg" alt="PSE">
-</figure>
-  
-  <br><br>
-  
-  <p> From June to August 2025, I had the opportunity to participate in several evenings of "Paris sous les étoiles", an event organized by the "Association Française d'Astronomie" (AFA). 
-    I was an animator to explain to the public how to use a telescope, to discuss about astronomy,... The idea of this event is, each year, to present astronomy and astrophysics for the general public in several parcs in Paris.
-    <br><br><br>
-  </p>
-  
-  <a href="index.html">Go back to the homepage</a>
+  <main class="page">
+    <h1 class="page-title">Outreach</h1>
+
+    <section class="card">
+      <figure class="figure figure--portrait">
+        <img src="assets/images/paris_sous_les_etoiles.jpeg" alt="Paris sous les étoiles" />
+        <figcaption>Paris sous les étoiles, summer 2025</figcaption>
+      </figure>
+
+      <p>
+        From June to August 2025, I had the opportunity to participate in several evenings of "Paris sous les étoiles", an event organized by the "Association Française d'Astronomie" (AFA).
+        I was an animator to explain to the public how to use a telescope, to discuss about astronomy,... The idea of this event is, each year, to present astronomy and astrophysics for the general public in several parcs in Paris.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Background image: ESA/Euclid/Euclid consortium/NASA, image processing by J.-C. Cuillandre (CEA Paris-Saclay), G. Anselmi
+  </footer>
 </body>
 </html>
