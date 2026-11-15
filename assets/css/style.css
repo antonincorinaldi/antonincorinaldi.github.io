@@ -361,44 +361,6 @@ main.page {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* ---------- Research tabs ---------- */
-.tabs {
-  display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.tab {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(156, 194, 255, 0.45);
-  background: var(--card);
-  color: var(--accent);
-  font: 600 1rem var(--font-head);
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.tab:hover { background: var(--card-hover); }
-
-.tab[aria-selected="true"] {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-.tab:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
-
-.tab-panel h2 {
-  font-family: var(--font-head);
-  font-size: 1.2rem;
-  margin: 1.75rem 0 0.5rem;
-  color: var(--accent-strong);
-}
-
-.tab-panel a:not(.pill) { color: var(--accent); }
-
 /* ---------- Footer ---------- */
 .site-footer {
   padding: 1.5rem 1rem 2rem;
@@ -422,7 +384,4 @@ main.page {
   .timeline time { grid-column: 1 / -1; }
 
   .course-list li { flex-direction: column; gap: 0.35rem; }
-
-  .tabs { gap: 0.5rem; }
-  .tab { padding: 0.65rem 0.5rem; font-size: 0.9rem; }
 }
