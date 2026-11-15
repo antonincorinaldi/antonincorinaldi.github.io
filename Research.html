@@ -26,7 +26,53 @@
   <main class="page">
     <h1 class="page-title">Research</h1>
 
-    <section class="card">
+    <div class="tabs" role="tablist" aria-label="Research topics">
+      <button class="tab" role="tab" id="tab-morphology" aria-controls="morphology" aria-selected="true">Galaxy morphology</button>
+      <button class="tab" role="tab" id="tab-intrinsic-alignments" aria-controls="intrinsic-alignments" aria-selected="false" tabindex="-1">Intrinsic alignments</button>
+    </div>
+
+    <section class="card tab-panel" role="tabpanel" id="morphology" aria-labelledby="tab-morphology">
+      <p>
+        Galaxies are 3D objects, but we only ever see them projected onto the sky as 2D images.
+        A round-looking galaxy can be a sphere, a disk seen face-on, or an elongated "cigar" seen end-on.
+        Recovering the true 3D shapes of galaxies, and understanding how they relate to the dark matter halos in which they live, is the main goal of my current work.
+      </p>
+
+      <h2>Galaxies and their dark matter halos</h2>
+      <p>
+        Every galaxy forms and evolves inside a halo of dark matter, which is itself not spherical: in numerical simulations, halos are triaxial ellipsoids, characterised by three axes (major, intermediate and minor).
+        How the shape of a galaxy relates to that of its host halo, the <em>galaxy–halo shape connection</em>, is still poorly known, while it is a key ingredient to model how galaxies align with the large-scale structure
+        (see <a href="#intrinsic-alignments" data-tab-link>intrinsic alignments</a>).
+      </p>
+
+      <h2>From 2D images to 3D shapes</h2>
+      <p>
+        For a single galaxy, recovering its 3D shape from its image is impossible: different shapes and orientations can produce the same projected image.
+        But for a large population of galaxies, seen under all possible viewing angles, the distribution of their projected ellipticities still carries statistical information on their 3D shapes.
+      </p>
+      <p>
+        To exploit it, I developed a forward model: I select host halos in the AbacusSummit N-body simulation so that they reproduce the observed clustering of a given galaxy sample,
+        and I place in each halo a central galaxy modelled as an ellipsoid aligned with its halo, whose axis ratios are those of the halo rescaled by random factors.
+        The distribution of these factors is then constrained with <em>simulation-based inference</em>, where a neural network learns the relation between the model parameters and the observed distribution of projected ellipticities, without requiring an analytical likelihood.
+      </p>
+
+      <h2>Application to UNIONS and DESI</h2>
+      <p>
+        I applied this method to galaxy shapes from the UNIONS survey, cross-matched with three DESI spectroscopic samples: luminous red galaxies (LRG), emission line galaxies (ELG) and bright galaxies (BGS).
+        The model reproduces the observed ellipticity distributions well, and shows that:
+      </p>
+      <ul>
+        <li>host halos have similar shapes for all samples, so the differences between galaxy populations come from how galaxies relate to their halo;</li>
+        <li>galaxies are much more elongated in 3D than their host halos;</li>
+        <li>this connection depends on the galaxy type: star-forming ELG are the flattest, red LRG are triaxial and closest to their halo, and bright BGS galaxies are closer to prolate shapes.</li>
+      </ul>
+      <p>
+        These results provide a data-driven prescription to assign 3D shapes to galaxies in halo-based models, a first step towards a full 3D description of intrinsic alignments.
+        <em>Paper in preparation, stay tuned!</em>
+      </p>
+    </section>
+
+    <section class="card tab-panel" role="tabpanel" id="intrinsic-alignments" aria-labelledby="tab-intrinsic-alignments" hidden>
       <figure class="figure">
         <img src="assets/images/cosmic_web.jpg" alt="Tidal field within the cosmic web" />
         <figcaption>Tidal field within the cosmic web of the Universe (Codis et al. 2015)</figcaption>
@@ -39,13 +85,56 @@
       </p>
       <p>
         In the literature, intrinsic alignments have so far been measured from correlations between the 2D shapes of galaxies, which can be measured directly from their observed, projected images.
-        However, part of the intrinsic alignment signal is lost in this 2D projection. The aim of my PhD thesis is to recover this information by analyzing correlations between the 3D shapes of galaxies, inferred from their projected images.
+        However, part of the intrinsic alignment signal is lost in this 2D projection. The aim of my PhD thesis is to recover this information by analyzing correlations between the <a href="#morphology" data-tab-link>3D shapes of galaxies, inferred from their projected images</a>.
       </p>
       <p>
-        The scientific goal is to better understand the full 3D interaction between galaxies and the underlying dark matter environment in which they formed and evolved.
+        The scientific goal is to better understand the full 3D interaction between galaxies and the underlying <a href="#morphology" data-tab-link>dark matter environment</a> in which they formed and evolved.
       </p>
     </section>
   </main>
+
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+
+      function show(id, focus) {
+        tabs.forEach(function (tab) {
+          var on = tab.getAttribute('aria-controls') === id;
+          tab.setAttribute('aria-selected', on);
+          tab.tabIndex = on ? 0 : -1;
+          document.getElementById(tab.getAttribute('aria-controls')).hidden = !on;
+          if (on && focus) tab.focus();
+        });
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () {
+          var id = tab.getAttribute('aria-controls');
+          show(id);
+          history.replaceState(null, '', '#' + id);
+        });
+        tab.addEventListener('keydown', function (e) {
+          var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+          if (!d) return;
+          var next = tabs[(i + d + tabs.length) % tabs.length];
+          show(next.getAttribute('aria-controls'), true);
+        });
+      });
+
+      document.querySelectorAll('[data-tab-link]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var id = link.getAttribute('href').slice(1);
+          show(id);
+          history.replaceState(null, '', '#' + id);
+          document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      var initial = location.hash.slice(1);
+      if (document.getElementById(initial) && document.getElementById(initial).classList.contains('tab-panel')) show(initial);
+    })();
+  </script>
 
   <footer class="site-footer">
     Background image: ESA/Euclid/Euclid Consortium/NASA, image processing by J.-C. Cuillandre (CEA Paris-Saclay), G. Anselmi
