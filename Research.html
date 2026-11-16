@@ -26,7 +26,36 @@
   <main class="page">
     <h1 class="page-title">Research</h1>
 
-    <section class="card">
+    <div class="tabs" role="tablist" aria-label="Research themes">
+      <button class="tab" role="tab" id="tab-morphology" aria-controls="panel-morphology" aria-selected="true">Galaxy morphology</button>
+      <button class="tab" role="tab" id="tab-ia" aria-controls="panel-ia" aria-selected="false" tabindex="-1">Intrinsic alignments</button>
+    </div>
+
+    <section class="card" role="tabpanel" id="panel-morphology" aria-labelledby="tab-morphology">
+      <figure class="figure">
+        <img src="assets/images/galaxy_halo_cosmic_web.jpg" alt="Artistic rendering of galaxies and their halos embedded in the filaments of the cosmic web" />
+        <figcaption>
+          An artistic rendering of the intrinsic alignments of galaxies embedded in the large-scale structure of the Universe.
+          Different signals contribute to the overall alignment of shapes relative to the density field: the alignment of central galaxies with their haloes,
+          the alignment of central galaxies relative to one another, the alignment of satellites within the halo and with the central shape,
+          and the potential alignment of galaxies with filaments. This also leads one to hypothesize about the presence of an alignment around voids. Credit: Fortuna &amp; Chisari (2025), CC BY-NC 4.0
+          (<a href="https://arxiv.org/abs/2510.15738" target="_blank" rel="noopener">Chisari 2025</a>).
+        </figcaption>
+      </figure>
+
+      <p>
+        The 3D morphology of galaxies encodes fundamental information about the processes governing galaxy formation and evolution within the cosmic web.
+        It is closely linked to the galaxy–halo connection, that is, the way galaxy properties relate to those of their host halos,
+        which is a key ingredient in cosmology and astrophysics and is still not fully understood.
+      </p>
+      <p>
+        In my research, I am interested in modeling the 3D shapes of halos and of the galaxies that live inside them using simulation-based inference.
+        This is crucial, in particular, for understanding the intrinsic alignments of galaxies
+        (see <a href="#panel-ia" data-tab="tab-ia">Intrinsic alignments</a>).
+      </p>
+    </section>
+
+    <section class="card" role="tabpanel" id="panel-ia" aria-labelledby="tab-ia" hidden>
       <figure class="figure">
         <img src="assets/images/cosmic_web.jpg" alt="Tidal field within the cosmic web" />
         <figcaption>Tidal field within the cosmic web of the Universe (Codis et al. 2015)</figcaption>
@@ -46,6 +75,45 @@
       </p>
     </section>
   </main>
+
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+
+      function select(tab, focus) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute('aria-selected', on);
+          t.tabIndex = on ? 0 : -1;
+          document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+        });
+        if (focus) tab.focus();
+        history.replaceState(null, '', '#' + tab.getAttribute('aria-controls').replace('panel-', ''));
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { select(tab); });
+        tab.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+            select(next, true);
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-tab]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          select(document.getElementById(link.dataset.tab), true);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      var hash = location.hash.replace('#', '');
+      var initial = document.getElementById('tab-' + (hash === 'ia' ? 'ia' : 'morphology'));
+      if (hash) select(initial);
+    })();
+  </script>
 
   <footer class="site-footer">
     Background image: ESA/Euclid/Euclid Consortium/NASA, image processing by J.-C. Cuillandre (CEA Paris-Saclay), G. Anselmi
