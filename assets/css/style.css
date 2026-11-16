@@ -207,6 +207,13 @@ main.page {
   border: 1px solid var(--border);
 }
 
+/* Research tabs: same frame for both images */
+[role="tabpanel"] .figure img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
 .figure--portrait img {
   width: auto;
   max-height: 480px;
