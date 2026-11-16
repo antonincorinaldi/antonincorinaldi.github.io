@@ -154,18 +154,22 @@ main.page {
 .tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .tab {
-  padding: 1rem 1.25rem;
+  min-height: 5.5rem;
+  padding: 1.5rem 1.25rem;
   font-family: var(--font-head);
-  font-size: clamp(1rem, 2.6vw, 1.2rem);
+  font-size: clamp(1.2rem, 3.6vw, 1.6rem);
   font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
   color: var(--text);
-  background: var(--card);
-  border: 1px solid var(--border);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  background: rgba(10, 14, 30, 0.78);
+  border: 2px solid var(--border-strong);
   border-radius: var(--radius);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -181,6 +185,7 @@ main.page {
 
 .tab[aria-selected="true"] {
   color: var(--bg);
+  text-shadow: none;
   background: var(--accent);
   border-color: var(--accent);
   box-shadow: 0 10px 30px rgba(156, 194, 255, 0.25);
